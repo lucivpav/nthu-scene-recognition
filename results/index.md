@@ -207,3 +207,8 @@ Accuracy (mean of diagonal of confusion matrix) is 0.068
 </center>
 
 
+<h2>Extra</h2>
+<h3>vocabulary size parameter (up to 3 pts)</h3>
+Performance of bag of words feature representation in combination with SVM classifier has been tested under the following vocabulary size parameters: <a href="../results_vocab10/index.md">10</a>, <a href="../results_vocab20/index.md">20</a>, <a href="../results_vocab50/index.md">50</a>, <a href="../results_vocab100/index.md">100</a>, <a href="../results_vocab200/index.md">200</a>, <a href="../results_vocab400/index.md">400</a>, <a href="../results_vocab1000/index.md">1000</a>, <a href="../results_vocab10000/index.md">10000</a>
+
+As discovered, <i>the larger the vocabulary, the better the accuracy</i> is true up to size of 400. After that, there were too many clusters to bring an extra value, and the performance was decreasing.
