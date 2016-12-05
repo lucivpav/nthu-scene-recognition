@@ -6,7 +6,7 @@
 %performance (although you need to pick a reasonable value for k).
 
 function predicted_categories = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats)
-% image_feats is an N x d matrix, where d is the dimensionality of the
+% train_image_feats is an N x d matrix, where d is the dimensionality of the
 %  feature representation.
 % train_labels is an N x 1 cell array, where each entry is a string
 %  indicating the ground truth category for each training image.
@@ -38,14 +38,15 @@ Useful functions:
   neighbors 
 
 %}
+N = size(train_image_feats, 1);
+M = size(test_image_feats, 1);
+k = 1;
+predicted_categories = cell(M,1);
 
-
-
-
-
-
-
-
-
-
-
+D = vl_alldist2(test_image_feats', train_image_feats'); % dxM, dxN -> MxN
+[D, index_array] = sort(D,2);
+for m=1:M
+  labels = train_labels(index_array(m, 1:k));
+  [~, idx, ~] = unique(labels);
+  predicted_categories{m} = char(labels(mode(idx)));
+end

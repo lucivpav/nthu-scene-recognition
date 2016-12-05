@@ -46,7 +46,27 @@ Useful functions:
 %category list. 'categories' will not be in the same order as in proj3.m,
 %because unique() sorts them. This shouldn't really matter, though.
 categories = unique(train_labels); 
-num_categories = length(categories);
+svm_w = [];
+svm_b = [];
+M = size(test_image_feats);
+predicted_categories = cell(M, 1);
 
+for i=1:size(categories)
+  x = strcmp(categories{i}, train_labels);
+  labels = ones(size(x)) .* -1;
+  labels = labels + 2*x;
+  
+  [W B] = vl_svmtrain(train_image_feats', labels', 0.00001);
+  svm_w(i,:) = W;
+  svm_b(i,:) = B;
+end
 
-
+for i=1:M
+  % find the most confident svm
+  confidence = [];
+  for j=1:size(categories)
+    confidence(j) = dot(svm_w(j,:), test_image_feats(i,:)) + svm_b(j,:);
+  end
+  [best, index] = max(confidence);
+  predicted_categories{i} = char(categories(index));
+end

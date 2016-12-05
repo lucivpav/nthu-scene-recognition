@@ -58,9 +58,17 @@ and using KD-trees.
 
 %}
 
-load('vocab.mat')
-vocab_size = size(vocab, 2);
+load('vocab.mat');
+vocab_size = size(vocab, 1);
 
+N = size(image_paths, 1);
+image_feats = [];
 
-
-
+for i=1:N
+  img = im2single(imread(image_paths{i}));
+  [~, SIFT_features] = vl_dsift(img, 'step', 10, 'fast');
+  D = vl_alldist2(single(SIFT_features), vocab');
+  [~, index] = min(D,[],2);
+  bincounts = histc(index, (1:vocab_size));
+  image_feats(i,:) = bincounts ./ sum(bincounts);
+end

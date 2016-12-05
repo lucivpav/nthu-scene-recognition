@@ -20,8 +20,16 @@ function image_feats = get_tiny_images(image_paths)
 
 % suggested functions: imread, imresize
 
+N = size(image_paths)(1);
+w = 16;
+image_feats = zeros(N, w*w);
 
-
-
-
-
+for i = 1 : size(image_paths)(1)
+  img = imread(image_paths{i});
+  img2 = imresize(img, [w,w]);
+  img2 = reshape(im2single(img2), [1, w*w]);
+  feature = img2-mean(img2);
+  % normalize feature
+  feature = feature ./ sum(feature);
+  image_feats(i,:) = feature;
+end

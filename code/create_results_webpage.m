@@ -50,6 +50,7 @@ for i=1:length(predicted_categories)
     column = find(strcmp(predicted_categories{i}, categories));
     confusion_matrix(row, column) = confusion_matrix(row, column) + 1;
 end
+
 %if the number of training examples and test casees are not equal, this
 %statement will be invalid.
 num_test_per_cat = length(test_labels) / num_categories;
