@@ -82,8 +82,8 @@ switch lower(FEATURE)
         end
         
         % YOU CODE get_bags_of_sifts.m
-        train_image_feats = get_bags_of_sifts(train_image_paths);
-        test_image_feats  = get_bags_of_sifts(test_image_paths);
+        train_image_feats = get_pyramid_bags_of_sifts(train_image_paths);
+        test_image_feats  = get_pyramid_bags_of_sifts(test_image_paths);
         
     case 'placeholder'
         train_image_feats = [];
