@@ -2,6 +2,12 @@
 <h1>Project 3 results visualization</h1>
 
 <h3>Implementation notes</h3>
+Nearest neigbour classifier proved most effective with <i>k=1</i> parameter (that is only choosing a single nearest neigbour).
+<br>
+<br>
+Support vector machine classifier proved most effective with <i>lambda=0.00001</i> parameter.
+<br>
+<br>
 <i>vl_dsift()</i> function in <i>get_bags_of_words()</i> and <i>build_vocabulary()</i> was used with <i>fast</i> and <i>step=10</i> parameters to allow for faster result retrieval. Future enhancement would be to run the code with higher accuracy parameters.
 
 <h3>Comparison</h3>
@@ -26,14 +32,14 @@
 <td><a href="../results_tiny_nn_k3/index.md">link</a></td>
 </tr>
 <tr>
-<td>Bags of words</td>
+<td>Bags of words <i>vocab_size=400</i></td>
 <td>Nearest neigbour <i>k=1</i></td>
 <td>0.476</td>
 <td><a href="../results_bag_nn/index.md">link</a></td>
 </tr>
 <tr>
-<td>Bags of words</td>
-<td>SVM <i>vocab_size=400</i></td>
+<td>Bags of words <i>vocab_size=400</i></td>
+<td>SVM <i>lambda=0.00001</i></td>
 <td><b>0.621</b></td>
 <td><a href="../results_bag_svm_vocab400/index.md">link</a></td>
 </tr>
