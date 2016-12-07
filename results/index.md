@@ -2,7 +2,7 @@
 <h1>Project 3 results visualization</h1>
 
 <h3>Implementation notes</h3>
-Tiny image represention resizes images to 16x16 pixels, substracts their mean value and normalizes them.
+Tiny image represention resizes images to <i>16x16</i> pixels, substracts their mean value and normalizes them.
 
 Nearest neigbour classifier proved most effective with <i>k=1</i> parameter (that is only choosing a single nearest neigbour).
 
