@@ -1,5 +1,44 @@
 <center>
 <h1>Project 3 results visualization</h1>
+
+<h3>Implementation notes</h3>
+<i>vl_dsift()</i> function in <i>get_bags_of_words()</i> and <i>build_vocabulary()</i> was used with <i>fast</i> and <i>step=10</i> parameters to allow for faster result retrieval. Future enhancement would be to run the code with higher accuracy parameters.
+
+<h3>Comparison</h3>
+
+<table border=0 cellpadding=4 cellspacing=1>
+<tr>
+<th>Feature descriptor</th>
+<th>Classifier</th>
+<th>Accuracy</th>
+<th>Results</th>
+</tr>
+<tr>
+<td>Tiny image</td>
+<td>Nearest neigbour <i>k=1</i></td>
+<td>0.161</td>
+<td><a href="../results_tiny_nn/index.md">link</a></td>
+</tr>
+<tr>
+<td>Tiny image</td>
+<td>Nearest neigbour <i>k=3</i></td>
+<td>0.145</td>
+<td><a href="../results_tiny_nn_k3/index.md">link</a></td>
+</tr>
+<tr>
+<td>Bags of words</td>
+<td>Nearest neigbour <i>k=1</i></td>
+<td>0.476</td>
+<td><a href="../results_bag_nn/index.md">link</a></td>
+</tr>
+<tr>
+<td>Bags of words</td>
+<td>SVM <i>vocab_size=400</i></td>
+<td><b>0.621</b></td>
+<td><a href="../results_bag_svm_vocab400/index.md">link</a></td>
+</tr>
+</table>
+
 <img src="confusion_matrix.png">
 
 <br>
